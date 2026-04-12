@@ -217,7 +217,7 @@ export default function HomePage() {
 
               {/* サブコピー */}
               <p className="mt-7 text-sm leading-relaxed text-muted-foreground md:text-base">
-                ひとつの母艦から　それぞれの旗艦へ
+                ひとつの母艦から、それぞれの旗艦へ
               </p>
             </div>
 
@@ -286,7 +286,7 @@ export default function HomePage() {
           </div>
 
           {/* 3事業を束ねる寸法線 */}
-          <div className="mt-3 px-1">
+          <div className="mt-3 px-1 hidden md:block">
             <svg
               viewBox="0 0 1000 28"
               className="w-full text-foreground/25"

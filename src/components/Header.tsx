@@ -3,14 +3,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { href: "#business", label: "事業領域" },
-  { href: "#about", label: "会社概要" },
+  { href: "/#business", label: "事業領域" },
+  { href: "/#about", label: "会社概要" },
 ];
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -34,7 +36,7 @@ export function Header() {
             alt="FlagshipWorks"
             width={160}
             height={24}
-            className="h-5 w-auto brightness-0 invert"
+            className="h-6 w-auto brightness-0 invert"
             priority
           />
         </Link>
@@ -53,8 +55,11 @@ export function Header() {
               href={href}
               className="hidden text-xs tracking-widest text-muted-foreground transition-colors hover:text-foreground md:block"
               onClick={(e) => {
-                e.preventDefault();
-                document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+                if (pathname === "/") {
+                  e.preventDefault();
+                  const id = href.replace("/", "");
+                  document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
+                }
               }}
             >
               {label}

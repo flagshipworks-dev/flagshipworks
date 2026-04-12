@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
   { href: "/#about", label: "会社概要" },
@@ -8,6 +11,8 @@ const navLinks = [
 ];
 
 export function Footer() {
+  const pathname = usePathname();
+
   return (
     <footer className="border-t border-border">
       <div className="mx-auto max-w-6xl px-6 py-12">
@@ -19,7 +24,7 @@ export function Footer() {
               alt="FlagshipWorks"
               width={140}
               height={20}
-              className="h-4 w-auto brightness-0 invert opacity-60"
+              className="h-5 w-auto brightness-0 invert opacity-60"
             />
           </Link>
 
@@ -41,6 +46,13 @@ export function Footer() {
                   key={href}
                   href={href}
                   className="text-xs tracking-widest text-muted-foreground transition-colors hover:text-foreground"
+                  onClick={(e) => {
+                    if (pathname === "/") {
+                      e.preventDefault();
+                      const id = href.replace("/", "");
+                      document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
                 >
                   {label}
                 </Link>
@@ -51,16 +63,16 @@ export function Footer() {
 
         {/* コピーライト + 設計図分類 */}
         <div className="mt-8 flex flex-col gap-2 border-t border-border pt-8 md:flex-row md:items-center md:justify-between">
-          <div className="flex items-center gap-6">
-            <p className="text-xs tracking-widest text-muted-foreground">
-              © {new Date().getFullYear()} FlagshipWorks合同会社. All rights reserved.
-            </p>
+          <div className="flex flex-col gap-6">
             <Link
               href="/privacy"
               className="text-xs tracking-widest text-muted-foreground transition-colors hover:text-foreground"
             >
               プライバシーポリシー
             </Link>
+            <p className="text-xs tracking-widest text-muted-foreground">
+              © {new Date().getFullYear()} FlagshipWorks合同会社. All rights reserved.
+            </p>
           </div>
           <p className="font-mono text-[9px] tracking-widest text-foreground/15">
             CLASSIFICATION: PUBLIC // DOC-FW-CORP-01 // REV.1.0
