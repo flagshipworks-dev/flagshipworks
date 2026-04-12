@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "404 — ページが見つかりません",
+  robots: { index: false, follow: false },
 };
 
 function Crosshair({ className }: { className?: string }) {
