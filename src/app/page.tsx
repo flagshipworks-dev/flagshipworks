@@ -1,5 +1,6 @@
 import { ArrowDown, ArrowRight, Code2, Building2, Activity } from "lucide-react";
 import { StarField } from "@/components/StarField";
+import { FadeIn } from "@/components/FadeIn";
 
 /* ── 設計図クロスヘア ── */
 function Crosshair({ className }: { className?: string }) {
@@ -201,6 +202,7 @@ export default function HomePage() {
         <div className="relative z-10 mx-auto flex min-h-[45vh] w-full max-w-6xl items-center">
           <div className="grid w-full grid-cols-1 gap-16 md:grid-cols-2 md:items-center">
             {/* 左: テキスト */}
+            <FadeIn>
             <div>
               <TechLabel>// FLAGSHIP WORKS — DESIGNATION</TechLabel>
 
@@ -221,6 +223,7 @@ export default function HomePage() {
                 ひとつの母艦から、それぞれの旗艦へ
               </p>
             </div>
+            </FadeIn>
 
             {/* 右: ブループリントレティクル */}
             <div className="hidden md:flex items-center justify-center">
@@ -248,19 +251,21 @@ export default function HomePage() {
           01
         </span>
         <div className="mx-auto max-w-6xl">
+          <FadeIn>
           <div className="mb-16">
             <TechLabel>// SECTION.01 — BUSINESS DOMAIN</TechLabel>
             <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
               事業領域
             </h2>
           </div>
+          </FadeIn>
 
           {/* カードグリッド */}
           <div className="grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-3" id="business-grid">
-            {businesses.map(({ number, ref, icon: Icon, title, subtitle, description }) => (
+            {businesses.map(({ number, ref, icon: Icon, title, subtitle, description }, i) => (
+              <FadeIn key={number} className="h-full">
               <div
-                key={number}
-                className="relative flex flex-col bg-background blueprint-grid p-8 md:p-10"
+                className="relative flex h-full flex-col bg-background blueprint-grid p-8 md:p-10"
               >
                 {/* コーナーブラケット（太め・濃いめ） */}
                 <span className="absolute top-0 left-0 h-6 w-6 border-t-2 border-l-2 border-foreground/35" />
@@ -283,6 +288,7 @@ export default function HomePage() {
                 </p>
                 <p className="text-sm leading-relaxed text-muted-foreground">{description}</p>
               </div>
+              </FadeIn>
             ))}
           </div>
 
@@ -332,14 +338,17 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl">
           <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-24">
             {/* 左: 見出し */}
+            <FadeIn>
             <div>
               <TechLabel>// SECTION.02 — COMPANY PROFILE</TechLabel>
               <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
                 会社概要
               </h2>
             </div>
+            </FadeIn>
 
             {/* 右: 内容 */}
+            <FadeIn>
             <div className="space-y-8">
               <p className="text-sm leading-loose text-muted-foreground">
                 FlagshipWorks合同会社は、現役デザイナーと現役眼科医の2名によって設立されました。
@@ -369,6 +378,7 @@ export default function HomePage() {
                 ))}
               </div>
             </div>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -380,6 +390,7 @@ export default function HomePage() {
           03
         </span>
         <div className="mx-auto max-w-6xl">
+          <FadeIn>
           <div className="flex flex-col items-start justify-between gap-12 md:flex-row md:items-end">
             <div>
               <TechLabel>// SECTION.03 — CONTACT</TechLabel>
@@ -406,6 +417,7 @@ export default function HomePage() {
               </a>
             </div>
           </div>
+          </FadeIn>
         </div>
       </section>
     </>
