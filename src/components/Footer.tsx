@@ -2,9 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 const navLinks = [
-  { href: "#about", label: "会社概要" },
-  { href: "#business", label: "事業内容" },
-  { href: "#contact", label: "お問い合わせ" },
+  { href: "/#about", label: "会社概要" },
+  { href: "/#business", label: "事業内容" },
+  { href: "https://forms.gle/xcK8c2gDTfy8u6G77", label: "お問い合わせ", external: true },
 ];
 
 export function Footer() {
@@ -25,15 +25,27 @@ export function Footer() {
 
           {/* リンク */}
           <nav className="flex items-center gap-6">
-            {navLinks.map(({ href, label }) => (
-              <Link
-                key={href}
-                href={href}
-                className="text-xs tracking-widest text-muted-foreground transition-colors hover:text-foreground"
-              >
-                {label}
-              </Link>
-            ))}
+            {navLinks.map(({ href, label, external }) =>
+              external ? (
+                <a
+                  key={href}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs tracking-widest text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {label}
+                </a>
+              ) : (
+                <Link
+                  key={href}
+                  href={href}
+                  className="text-xs tracking-widest text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {label}
+                </Link>
+              )
+            )}
           </nav>
         </div>
 

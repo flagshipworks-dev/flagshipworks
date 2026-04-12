@@ -52,6 +52,9 @@ export function StarField() {
   const rafRef       = useRef<number>(0);
 
   useEffect(() => {
+    // モバイルではアニメーションを無効化（パフォーマンス最適化）
+    if (window.matchMedia("(max-width: 767px)").matches) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -221,7 +224,7 @@ export function StarField() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 h-full w-full"
+      className="absolute inset-0 h-full w-full pointer-events-none"
       aria-hidden
     />
   );
