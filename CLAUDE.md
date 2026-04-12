@@ -54,3 +54,5 @@ npx shadcn@latest add navigation-menu  # ナビゲーション
 ### スタイリング
 
 Tailwind CSS v4 を使用。CSS変数によるテーマカラーは `globals.css` で定義されており、`bg-background`・`text-foreground` 等のクラスで参照できる。
+
+> **重要**: UI・スタイルに関わる作業を行う際は、必ず `DESIGN.md` を参照し、定義されているデザインルール・コンポーネントパターン・トークンに従うこと。
