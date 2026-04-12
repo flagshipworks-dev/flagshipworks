@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     template: "%s | FlagshipWorks",
   },
   description:
-    "ひとつの母艦から、それぞれの旗艦へ。代表デザイナーと現役眼科医が手がける、ホールディングス型スタートアップ。",
+    "ひとつの母艦から、それぞれの旗艦へ。現役デザイナーと現役眼科医が手がける、ホールディングス型スタートアップ。",
   openGraph: {
     type: "website",
     locale: "ja_JP",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     siteName: "FlagshipWorks合同会社",
     title: "FlagshipWorks合同会社",
     description:
-      "ひとつの母艦から、それぞれの旗艦へ。代表デザイナーと現役眼科医が手がける、ホールディングス型スタートアップ。",
+      "ひとつの母艦から、それぞれの旗艦へ。現役デザイナーと現役眼科医が手がける、ホールディングス型スタートアップ。",
   },
   twitter: {
     card: "summary_large_image",

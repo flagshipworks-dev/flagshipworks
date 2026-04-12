@@ -341,7 +341,7 @@ export default function HomePage() {
             {/* 右: 内容 */}
             <div className="space-y-8">
               <p className="text-sm leading-loose text-muted-foreground">
-                FlagshipWorks合同会社は、代表デザイナーと現役眼科医の2名によって設立されました。
+                FlagshipWorks合同会社は、現役デザイナーと現役眼科医の2名によって設立されました。
                 「医療の精密さ」と「デザインの創造性」という専門性を融合させ、
                 様々な事業を展開していきます。
               </p>
