@@ -172,8 +172,8 @@ export default function HomePage() {
         {/* 星空 + 旗艦 */}
         <StarField />
 
-        {/* ネビュラグロー */}
-        <div className="pointer-events-none absolute inset-0">
+        {/* ネビュラグロー（モバイルでは非表示：blur-filterはiOSで重い） */}
+        <div className="pointer-events-none absolute inset-0 hidden md:block">
           <div className="absolute -top-32 right-1/4 h-125 w-125 rounded-full bg-blue-950/40 blur-[120px]" />
           <div className="absolute bottom-0 left-1/3 h-100 w-100 rounded-full bg-indigo-950/30 blur-[100px]" />
         </div>
@@ -234,9 +234,9 @@ export default function HomePage() {
             Scroll
           </span>
           <div className="relative flex h-10 w-6 items-start justify-center rounded-full border border-foreground/40 pt-1.5">
-            <div className="h-2 w-0.5 animate-[scroll-dot_1.6s_ease-in-out_infinite] rounded-full bg-foreground/60" />
+            <div className="h-2 w-0.5 md:animate-[scroll-dot_1.6s_ease-in-out_infinite] rounded-full bg-foreground/60" />
           </div>
-          <ArrowDown className="h-3.5 w-3.5 animate-bounce text-foreground/50" strokeWidth={1.5} />
+          <ArrowDown className="h-3.5 w-3.5 md:animate-bounce text-foreground/50" strokeWidth={1.5} />
         </div>
       </section>
 
