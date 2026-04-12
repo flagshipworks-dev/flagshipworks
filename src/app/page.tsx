@@ -158,6 +158,7 @@ const businesses = [
 const companyInfo = [
   { label: "COMPANY",  value: "FlagshipWorks合同会社" },
   { label: "CEO",      value: "金森祥治" },
+  { label: "CO-FOUNDER", value: "鈴木規識" },
   { label: "FOUNDED",  value: "2026年1月29日" },
   { label: "CAPITAL",  value: "500,000円" },
   { label: "LOCATION", value: "東京都世田谷区" },
