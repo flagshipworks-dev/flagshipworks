@@ -128,7 +128,7 @@ export default function Image() {
               display: "flex",
             }}
           >
-            flagshipworks.jp
+            flagshipworks.co.jp
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
             <div

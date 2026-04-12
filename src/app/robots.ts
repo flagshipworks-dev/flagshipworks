@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://flagshipworks.jp/sitemap.xml",
+    sitemap: "https://flagshipworks.co.jp/sitemap.xml",
   };
 }

@@ -21,7 +21,7 @@ const notoSansJP = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://flagshipworks.jp"),
+  metadataBase: new URL("https://flagshipworks.co.jp"),
   title: {
     default: "FlagshipWorks合同会社",
     template: "%s | FlagshipWorks",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "ja_JP",
-    url: "https://flagshipworks.jp",
+    url: "https://flagshipworks.co.jp",
     siteName: "FlagshipWorks合同会社",
     title: "FlagshipWorks合同会社",
     description:
