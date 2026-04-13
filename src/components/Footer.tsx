@@ -5,8 +5,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { href: "/#about", label: "会社概要" },
   { href: "/#business", label: "事業内容" },
+  { href: "/#services", label: "サービス" },
+  { href: "/#about", label: "会社概要" },
   { href: "https://forms.gle/xcK8c2gDTfy8u6G77", label: "お問い合わせ", external: true },
 ];
 

@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowRight, Code2, Building2, Activity } from "lucide-react";
+import { ArrowDown, ArrowRight, Code2, Building2, Activity, Monitor } from "lucide-react";
 import { StarField } from "@/components/StarField";
 import { FadeIn } from "@/components/FadeIn";
 
@@ -265,7 +265,7 @@ export default function HomePage() {
       {/* ── Business ── */}
       <section id="business" className="relative overflow-hidden border-t border-border bg-card blueprint-grid px-6 py-24 md:py-32">
         {/* ゴーストナンバー */}
-        <span className="pointer-events-none absolute -right-4 top-4 select-none font-mono text-[11rem] font-bold leading-none text-foreground/4 md:text-[16rem]">
+        <span className="pointer-events-none absolute -left-4 top-4 select-none font-mono text-[11rem] font-bold leading-none text-foreground/4 md:text-[16rem]">
           01
         </span>
         <div className="mx-auto max-w-6xl">
@@ -347,18 +347,92 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── Services ── */}
+      <section id="services" className="relative overflow-hidden border-t border-border px-6 py-24 md:py-32">
+        {/* ゴーストナンバー */}
+        <span className="pointer-events-none absolute -right-4 top-4 select-none font-mono text-[11rem] font-bold leading-none text-foreground/4 md:text-[16rem]">
+          02
+        </span>
+        <div className="mx-auto max-w-6xl">
+          <FadeIn>
+          <div className="mb-16">
+            <TechLabel>// SECTION.02 — SERVICES</TechLabel>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+              サービス
+            </h2>
+          </div>
+          </FadeIn>
+
+          {/* フィーチャードサービスカード */}
+          <FadeIn>
+          <div className="relative border border-border bg-card blueprint-grid p-8 md:p-12">
+            {/* コーナーブラケット */}
+            <span className="absolute top-0 left-0 h-6 w-6 border-t-2 border-l-2 border-foreground/35" />
+            <span className="absolute top-0 right-0 h-6 w-6 border-t-2 border-r-2 border-foreground/35" />
+            <span className="absolute bottom-0 left-0 h-6 w-6 border-b-2 border-l-2 border-foreground/35" />
+            <span className="absolute bottom-0 right-0 h-6 w-6 border-b-2 border-r-2 border-foreground/35" />
+
+            <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-16">
+              {/* 左: サービス概要 */}
+              <div>
+                <p className="mb-6 font-mono text-[9px] tracking-[0.15em] text-blue-300">
+                  // SERVICE.01 — MEDICAL WEB
+                </p>
+                <Monitor className="mb-6 h-7 w-7 text-foreground/50" strokeWidth={1.5} />
+                <h3 className="mb-3 text-2xl font-bold tracking-tight text-foreground md:text-3xl">
+                  医療業界向け
+                  <br />
+                  サイト制作
+                </h3>
+                <p className="mb-8 text-sm leading-relaxed text-muted-foreground">
+                  現役眼科医の知見とWebデザインの専門性を掛け合わせ、医療機関に特化したウェブサイトを制作します。患者体験の向上・予約導線の最適化・医療広告ガイドラインへの対応まで、医療現場を知るチームが一貫して担います。
+                </p>
+                <a
+                  href="/service/medical-web"
+                  className="inline-flex items-center gap-3 border border-foreground/20 px-6 py-3 font-mono text-xs tracking-[0.2em] text-foreground transition-colors hover:bg-foreground/5 uppercase"
+                >
+                  詳しく見る
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </a>
+              </div>
+
+              {/* 右: 特徴リスト */}
+              <div className="space-y-0 border border-border/50">
+                {[
+                  { id: "01", label: "医療広告ガイドライン対応" },
+                  { id: "02", label: "患者向けUX設計" },
+                  { id: "03", label: "予約・問い合わせ導線の最適化" },
+                  { id: "04", label: "モバイルファースト対応" },
+                  { id: "05", label: "SEO・MEO対策" },
+                  { id: "06", label: "現役医師による監修" },
+                ].map(({ id, label }, i, arr) => (
+                  <div
+                    key={id}
+                    className={`flex items-center gap-4 p-4 ${i !== arr.length - 1 ? "border-b border-dashed border-border/40" : ""}`}
+                  >
+                    <span className="shrink-0 font-mono text-[9px] tracking-widest text-foreground/25">{id}</span>
+                    <span className="text-sm text-foreground/80">{label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* ── About ── */}
       <section id="about" className="relative overflow-hidden border-t border-border px-6 py-24 md:py-32">
         {/* ゴーストナンバー */}
         <span className="pointer-events-none absolute -left-4 top-4 select-none font-mono text-[11rem] font-bold leading-none text-foreground/4 md:text-[16rem]">
-          02
+          03
         </span>
         <div className="mx-auto max-w-6xl">
           <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-24">
             {/* 左: 見出し */}
             <FadeIn>
             <div>
-              <TechLabel>// SECTION.02 — COMPANY PROFILE</TechLabel>
+              <TechLabel>// SECTION.03 — COMPANY PROFILE</TechLabel>
               <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
                 会社概要
               </h2>
@@ -404,13 +478,13 @@ export default function HomePage() {
       {/* ── Members ── */}
       <section id="members" className="relative overflow-hidden border-t border-border bg-card blueprint-grid px-6 py-24 md:py-32">
         {/* ゴーストナンバー */}
-        <span className="pointer-events-none absolute -left-4 top-4 select-none font-mono text-[11rem] font-bold leading-none text-foreground/4 md:text-[16rem]">
-          03
+        <span className="pointer-events-none absolute -right-4 top-4 select-none font-mono text-[11rem] font-bold leading-none text-foreground/4 md:text-[16rem]">
+          04
         </span>
         <div className="mx-auto max-w-6xl">
           <FadeIn>
           <div className="mb-16">
-            <TechLabel>// SECTION.03 — MEMBERS</TechLabel>
+            <TechLabel>// SECTION.04 — MEMBERS</TechLabel>
             <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
               メンバー
             </h2>
@@ -479,14 +553,14 @@ export default function HomePage() {
       {/* ── Contact ── */}
       <section id="contact" className="relative overflow-hidden border-t border-border px-6 py-24 md:py-32">
         {/* ゴーストナンバー */}
-        <span className="pointer-events-none absolute -right-4 top-4 select-none font-mono text-[11rem] font-bold leading-none text-foreground/4 md:text-[16rem]">
-          04
+        <span className="pointer-events-none absolute -left-4 top-4 select-none font-mono text-[11rem] font-bold leading-none text-foreground/4 md:text-[16rem]">
+          05
         </span>
         <div className="mx-auto max-w-6xl">
           <FadeIn>
           <div className="flex flex-col items-start justify-between gap-12 md:flex-row md:items-end">
             <div>
-              <TechLabel>// SECTION.04 — CONTACT</TechLabel>
+              <TechLabel>// SECTION.05 — CONTACT</TechLabel>
               <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
                 お問い合わせ
               </h2>
