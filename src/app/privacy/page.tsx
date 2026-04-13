@@ -1,5 +1,18 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "プライバシーポリシー",
+  description: "FlagshipWorks合同会社のプライバシーポリシーです。個人情報の取り扱いについて説明しています。",
+  alternates: {
+    canonical: "https://flagshipworks.co.jp/privacy",
+  },
+  robots: {
+    index: true,
+    follow: false,
+  },
+};
 
 const sections = [
   {

@@ -5,7 +5,45 @@ import { ArrowLeft, ArrowRight, Monitor, CheckCircle2 } from "lucide-react";
 export const metadata: Metadata = {
   title: "医療業界向けサイト制作",
   description:
-    "現役眼科医の知見とWebデザインの専門性を掛け合わせ、医療機関に特化したウェブサイトを制作します。医療広告ガイドライン対応・患者UX設計・SEO対策まで一貫して担います。",
+    "現役眼科医の知見とWebデザインの専門性を掛け合わせ、医療機関に特化したウェブサイトを制作します。医療広告ガイドライン対応・患者UX設計・SEO・MEO対策まで一貫して担います。",
+  keywords: [
+    "医療業界 サイト制作",
+    "医療 ホームページ制作",
+    "クリニック ホームページ",
+    "病院 ウェブサイト",
+    "医療広告ガイドライン",
+    "医療 SEO",
+    "医療 MEO",
+    "眼科 ホームページ",
+    "FlagshipWorks",
+  ],
+  alternates: {
+    canonical: "https://flagshipworks.co.jp/service/medical-web",
+  },
+  openGraph: {
+    type: "website",
+    locale: "ja_JP",
+    url: "https://flagshipworks.co.jp/service/medical-web",
+    siteName: "FlagshipWorks合同会社",
+    title: "医療業界向けサイト制作 | FlagshipWorks",
+    description:
+      "現役眼科医の知見とWebデザインの専門性を掛け合わせ、医療機関に特化したウェブサイトを制作します。医療広告ガイドライン対応・患者UX設計・SEO対策まで一貫して担います。",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "医療業界向けサイト制作 | FlagshipWorks",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "医療業界向けサイト制作 | FlagshipWorks",
+    description:
+      "現役眼科医の知見とWebデザインの専門性を掛け合わせ、医療機関に特化したウェブサイトを制作します。",
+    images: ["/opengraph-image"],
+  },
 };
 
 /* ── セクション技術ラベル ── */
@@ -68,9 +106,33 @@ const process = [
   { step: "06", title: "公開・サポート", description: "サイトを公開後も、更新サポートや改善提案を継続的に行います。" },
 ];
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "医療業界向けサイト制作",
+  description:
+    "現役眼科医の知見とWebデザインの専門性を掛け合わせ、医療機関に特化したウェブサイトを制作します。医療広告ガイドライン対応・患者UX設計・SEO・MEO対策まで一貫して担います。",
+  url: "https://flagshipworks.co.jp/service/medical-web",
+  serviceType: "Webサイト制作",
+  areaServed: {
+    "@type": "Country",
+    name: "Japan",
+  },
+  provider: {
+    "@type": "Organization",
+    name: "FlagshipWorks合同会社",
+    url: "https://flagshipworks.co.jp",
+  },
+};
+
 export default function MedicalWebPage() {
   return (
     <div className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       {/* ── ヘッダー ── */}
       <section className="relative overflow-hidden border-b border-border px-6 pt-32 pb-20 md:pt-40 md:pb-28">
         <div className="pointer-events-none absolute inset-0 hidden md:block">
