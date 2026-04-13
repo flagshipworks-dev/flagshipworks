@@ -1,11 +1,26 @@
 import { ImageResponse } from "next/og";
+import { readFileSync } from "fs";
+import { join } from "path";
 
-export const runtime = "edge";
 export const alt = "FlagshipWorks合同会社";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default function Image() {
+  const geistBold = readFileSync(
+    join(process.cwd(), "node_modules/geist/dist/fonts/geist-sans/Geist-Bold.ttf")
+  );
+  const geistRegular = readFileSync(
+    join(process.cwd(), "node_modules/geist/dist/fonts/geist-sans/Geist-Regular.ttf")
+  );
+
+  // ロゴSVGを読み込み、fillを白に変更
+  const logoSvg = readFileSync(join(process.cwd(), "public/logo.svg"), "utf-8").replace(
+    "fill: #191e28",
+    "fill: #ffffff"
+  );
+  const logoSrc = `data:image/svg+xml;base64,${Buffer.from(logoSvg).toString("base64")}`;
+
   return new ImageResponse(
     (
       <div
@@ -18,6 +33,7 @@ export default function Image() {
           justifyContent: "space-between",
           padding: "64px 80px",
           position: "relative",
+          fontFamily: "Geist",
         }}
       >
         {/* ブループリントグリッド（横） */}
@@ -50,11 +66,12 @@ export default function Image() {
         ))}
 
         {/* 上部ラベル */}
-        <div style={{ display: "flex", alignItems: "center", gap: 0 }}>
+        <div style={{ display: "flex", alignItems: "center" }}>
           <span
             style={{
-              fontFamily: "monospace",
-              fontSize: 12,
+              fontFamily: "Geist",
+              fontWeight: 700,
+              fontSize: 14,
               letterSpacing: "0.2em",
               color: "#93c5fd",
             }}
@@ -63,8 +80,9 @@ export default function Image() {
           </span>
           <span
             style={{
-              fontFamily: "monospace",
-              fontSize: 12,
+              fontFamily: "Geist",
+              fontWeight: 700,
+              fontSize: 14,
               letterSpacing: "0.2em",
               color: "rgba(255,255,255,0.3)",
             }}
@@ -73,42 +91,30 @@ export default function Image() {
           </span>
         </div>
 
-        {/* メインコピー */}
-        <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+        {/* メインコンテンツ */}
+        <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
           <div
             style={{
-              fontFamily: "monospace",
-              fontSize: 14,
+              fontFamily: "Geist",
+              fontWeight: 700,
+              fontSize: 15,
               letterSpacing: "0.5em",
               color: "rgba(255,255,255,0.45)",
-              textTransform: "uppercase",
               display: "flex",
             }}
           >
             The Platform for Flagships.
           </div>
-          <div
-            style={{
-              fontSize: 88,
-              fontWeight: 700,
-              color: "rgba(255,255,255,0.95)",
-              lineHeight: 1,
-              letterSpacing: "-0.02em",
-              display: "flex",
-            }}
-          >
-            FlagshipWorks
-          </div>
-          <div
-            style={{
-              fontSize: 22,
-              color: "rgba(255,255,255,0.35)",
-              letterSpacing: "0.1em",
-              display: "flex",
-            }}
-          >
-            合同会社
-          </div>
+
+          {/* ロゴ画像 */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={logoSrc}
+            width={600}
+            height={88}
+            alt="FlagshipWorks"
+            style={{ objectFit: "contain", objectPosition: "left" }}
+          />
         </div>
 
         {/* 下部 */}
@@ -121,7 +127,8 @@ export default function Image() {
         >
           <div
             style={{
-              fontFamily: "monospace",
+              fontFamily: "Geist",
+              fontWeight: 400,
               fontSize: 14,
               letterSpacing: "0.15em",
               color: "rgba(255,255,255,0.25)",
@@ -153,8 +160,9 @@ export default function Image() {
             </div>
             <span
               style={{
-                fontFamily: "monospace",
-                fontSize: 11,
+                fontFamily: "Geist",
+                fontWeight: 700,
+                fontSize: 12,
                 letterSpacing: "0.2em",
                 color: "rgba(147,197,253,0.5)",
               }}
@@ -165,6 +173,12 @@ export default function Image() {
         </div>
       </div>
     ),
-    { ...size }
+    {
+      ...size,
+      fonts: [
+        { name: "Geist", data: geistBold, style: "normal", weight: 700 },
+        { name: "Geist", data: geistRegular, style: "normal", weight: 400 },
+      ],
+    }
   );
 }
