@@ -155,6 +155,24 @@ const businesses = [
   },
 ];
 
+/* ── メンバーデータ ── */
+const members = [
+  {
+    id: "01",
+    ref: "// MEMBER.01 — REPRESENTATIVE",
+    role: "代表社員",
+    name: "金森祥治",
+    bio: "IT業界にてCDOとして実務を指揮しつつ、事業推進および組織構築に従事。単なる戦略策定に留まらず、自ら実務に携わりながら事業が継続する体制を構築してきた点が特徴である。\nデザイナーのアサイン管理や採用計画、売上進捗に基づく数値管理など、事業運営の要諦を一貫して担う。リソースの最適配置や属人化の排除、コスト統制を徹底し、データに基づいた迅速な意思決定で事業の安定成長を支える。",
+  },
+  {
+    id: "02",
+    ref: "// MEMBER.02 — EXECUTIVE",
+    role: "業務執行社員",
+    name: "鈴木規識",
+    bio: "常勤医師として約4年間、外来診療、手術、当直業務に継続的に従事。日常診療の完遂はもとより、手術運営や現場調整、患者対応といった医療現場の中核をなす運営業務を専門とする。\n最大の特徴は、単なる診療行為に留まらず、多職種が介在する現場を安全かつ円滑に機能させる「調整役」としての能力にある。常に全体を俯瞰し、リスク管理と効率的な運営を両立させることで、質の高い医療提供体制を支える。",
+  },
+];
+
 /* ── 会社概要データ ── */
 const companyInfo = [
   { label: "COMPANY",  value: "FlagshipWorks合同会社" },
@@ -383,17 +401,92 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── Members ── */}
+      <section id="members" className="relative overflow-hidden border-t border-border bg-card blueprint-grid px-6 py-24 md:py-32">
+        {/* ゴーストナンバー */}
+        <span className="pointer-events-none absolute -left-4 top-4 select-none font-mono text-[11rem] font-bold leading-none text-foreground/4 md:text-[16rem]">
+          03
+        </span>
+        <div className="mx-auto max-w-6xl">
+          <FadeIn>
+          <div className="mb-16">
+            <TechLabel>// SECTION.03 — MEMBERS</TechLabel>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+              メンバー
+            </h2>
+          </div>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-2">
+            {members.map(({ id, ref, role, name, bio }) => (
+              <FadeIn key={id} className="h-full">
+              <div className="relative flex h-full flex-col bg-background blueprint-grid p-8 md:p-10">
+                {/* コーナーブラケット */}
+                <span className="absolute top-0 left-0 h-6 w-6 border-t-2 border-l-2 border-foreground/35" />
+                <span className="absolute top-0 right-0 h-6 w-6 border-t-2 border-r-2 border-foreground/35" />
+                <span className="absolute bottom-0 left-0 h-6 w-6 border-b-2 border-l-2 border-foreground/35" />
+                <span className="absolute bottom-0 right-0 h-6 w-6 border-b-2 border-r-2 border-foreground/35" />
+
+                {/* 技術参照ラベル */}
+                <p className="mb-6 font-mono text-[9px] tracking-[0.15em] text-blue-300">{ref}</p>
+
+                {/* 写真 + 氏名・肩書 横並び */}
+                <div className="mb-8 flex items-center gap-6">
+                  {/* 写真プレースホルダー */}
+                  <div className="relative h-20 w-20 shrink-0 border border-border/50">
+                    <svg
+                      viewBox="0 0 80 80"
+                      className="absolute inset-0 h-full w-full text-foreground/10"
+                      fill="none"
+                      stroke="currentColor"
+                      aria-hidden
+                    >
+                      <line x1="0" y1="0" x2="80" y2="80" strokeWidth="0.6" />
+                      <line x1="80" y1="0" x2="0" y2="80" strokeWidth="0.6" />
+                      <line x1="40" y1="0" x2="40" y2="80" strokeWidth="0.4" strokeDasharray="4,4" />
+                      <line x1="0" y1="40" x2="80" y2="40" strokeWidth="0.4" strokeDasharray="4,4" />
+                      <circle cx="40" cy="40" r="6" strokeWidth="0.6" />
+                    </svg>
+                    <span className="absolute bottom-1 right-1.5 font-mono text-[7px] tracking-widest text-foreground/20">
+                      PHOTO
+                    </span>
+                  </div>
+
+                  {/* 役職・名前 */}
+                  <div>
+                    <p className="mb-1.5 font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
+                      {role}
+                    </p>
+                    <h3 className="text-xl font-bold tracking-tight text-foreground">
+                      {name}
+                    </h3>
+                  </div>
+                </div>
+
+                {/* 紹介文 */}
+                {bio ? (
+                  <p className="whitespace-pre-line text-sm leading-relaxed text-muted-foreground">{bio}</p>
+                ) : (
+                  <p className="font-mono text-[9px] tracking-widest text-foreground/20">— BIO COMING SOON —</p>
+                )}
+              </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Contact ── */}
-      <section id="contact" className="relative overflow-hidden border-t border-border bg-card blueprint-grid px-6 py-24 md:py-32">
+      <section id="contact" className="relative overflow-hidden border-t border-border px-6 py-24 md:py-32">
         {/* ゴーストナンバー */}
         <span className="pointer-events-none absolute -right-4 top-4 select-none font-mono text-[11rem] font-bold leading-none text-foreground/4 md:text-[16rem]">
-          03
+          04
         </span>
         <div className="mx-auto max-w-6xl">
           <FadeIn>
           <div className="flex flex-col items-start justify-between gap-12 md:flex-row md:items-end">
             <div>
-              <TechLabel>// SECTION.03 — CONTACT</TechLabel>
+              <TechLabel>// SECTION.04 — CONTACT</TechLabel>
               <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
                 お問い合わせ
               </h2>
