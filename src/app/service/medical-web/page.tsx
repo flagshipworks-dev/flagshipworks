@@ -408,7 +408,7 @@ export default function MedicalWebPage() {
                   {[
                     {
                       label: "制作費特別割引",
-                      value: "通常価格より 40% OFF",
+                      value: "通常価格より 20% OFF",
                     },
                     {
                       label: "戦略コンサル無償提供",
