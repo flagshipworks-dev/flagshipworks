@@ -4,7 +4,7 @@ import { ArrowLeft, ArrowRight, Monitor, CheckCircle2 } from "lucide-react";
 import { getAllLogs, getAllWorks } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "医療業界向けサイト制作",
+  title: "医療業界向けサイト制作 | FlagshipWorks",
   description:
     "現役眼科医の知見とWebデザインの専門性を掛け合わせ、医療機関に特化したウェブサイトを制作します。医療広告ガイドライン対応・患者UX設計・SEO・MEO対策まで一貫して担います。",
   keywords: [
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ja_JP",
     url: "https://flagshipworks.co.jp/service/medical-web",
-    siteName: "FlagshipWorks合同会社",
+    siteName: "FlagshipWorks",
     title: "医療業界向けサイト制作 | FlagshipWorks",
     description:
       "現役眼科医の知見とWebデザインの専門性を掛け合わせ、医療機関に特化したウェブサイトを制作します。医療広告ガイドライン対応・患者UX設計・SEO対策まで一貫して担います。",
@@ -250,6 +250,213 @@ export default function MedicalWebPage() {
         </div>
       </section>
 
+      {/* ── 料金プラン ── */}
+      <section className="border-b border-border px-6 py-20 md:py-28">
+        <div className="mx-auto max-w-6xl">
+          <TechLabel>// PRICING — PLANS</TechLabel>
+          <h2 className="mb-12 text-2xl font-bold tracking-tight text-foreground md:text-3xl">
+            料金プラン
+          </h2>
+
+          <div className="relative border border-border blueprint-grid">
+            <span className="absolute top-0 left-0 h-6 w-6 border-t-2 border-l-2 border-foreground/35" />
+            <span className="absolute top-0 right-0 h-6 w-6 border-t-2 border-r-2 border-foreground/35" />
+            <span className="absolute bottom-0 left-0 h-6 w-6 border-b-2 border-l-2 border-foreground/35" />
+            <span className="absolute bottom-0 right-0 h-6 w-6 border-b-2 border-r-2 border-foreground/35" />
+
+          <div className="grid grid-cols-1 gap-px bg-foreground/20 md:grid-cols-2">
+            {/* Standard Plan */}
+            <div className="bg-background/60 p-8 md:p-10">
+              <p className="mb-4 font-mono text-[9px] tracking-[0.15em] text-blue-300">STANDARD PLAN</p>
+              <p className="mb-6 text-4xl font-bold tracking-tight text-foreground">
+                ¥600,000
+                <span className="ml-2 text-sm font-normal text-muted-foreground">〜（税別）</span>
+              </p>
+              <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
+                院の顔としての信頼性と、ガイドライン遵守を両立させた基本プランです
+              </p>
+              <div className="mb-3 border border-blue-300/20 bg-blue-300/5 p-4">
+                <p className="mb-1.5 font-mono text-[9px] tracking-widest text-blue-300">MEDICAL CHECK</p>
+                <p className="text-sm text-foreground/80">現役医師による医療広告ガイドライン適合チェック</p>
+              </div>
+              <div className="mb-8 p-4 hidden md:invisible md:block">
+                <p className="mb-1.5 font-mono text-[9px] tracking-widest">STRATEGY</p>
+                <p className="text-sm">新規事業開発プロフェッショナルによる集患導線・競合分析レポート</p>
+              </div>
+              <p className="mb-3 font-mono text-[9px] tracking-widest text-foreground/30">INCLUDES</p>
+              <div className="space-y-0">
+                {[
+                  "ページ制作（5〜8枚）",
+                  "スマートフォン最適化",
+                  "お問い合わせフォーム",
+                  "内部SEO対策",
+                  "Googleアナリティクス設置",
+                ].map((item, i, arr) => (
+                  <div
+                    key={item}
+                    className={`flex items-center gap-3 p-3 ${i !== arr.length - 1 ? "border-b border-dashed border-border/40" : ""}`}
+                  >
+                    <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-blue-300/70" strokeWidth={1.5} />
+                    <span className="text-sm text-foreground/80">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Professional Plan */}
+            <div className="bg-background/60 p-8 md:p-10">
+              <p className="mb-4 font-mono text-[9px] tracking-[0.15em] text-blue-300">PROFESSIONAL PLAN</p>
+              <p className="mb-6 text-4xl font-bold tracking-tight text-foreground">
+                ¥1,200,000
+                <span className="ml-2 text-sm font-normal text-muted-foreground">〜（税別）</span>
+              </p>
+              <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
+                ブランディングまで含めた、より本格的な集患・信頼構築を目指すプランです
+              </p>
+              <div className="mb-3 border border-blue-300/20 bg-blue-300/5 p-4">
+                <p className="mb-1.5 font-mono text-[9px] tracking-widest text-blue-300">MEDICAL CHECK</p>
+                <p className="text-sm text-foreground/80">現役医師による医療広告ガイドライン適合チェック</p>
+              </div>
+              <div className="mb-8 border border-blue-300/20 bg-blue-300/5 p-4">
+                <p className="mb-1.5 font-mono text-[9px] tracking-widest text-blue-300">STRATEGY</p>
+                <p className="text-sm text-foreground/80">新規事業開発プロフェッショナルによる集患導線・競合分析レポート</p>
+              </div>
+              <p className="mb-3 font-mono text-[9px] tracking-widest text-foreground/30">INCLUDES</p>
+              <div className="space-y-0">
+                {[
+                  "ページ制作（10〜15枚）",
+                  "スマートフォン最適化",
+                  "お問い合わせフォーム",
+                  "内部SEO対策",
+                  "Googleアナリティクス設置",
+                  "写真撮影ディレクション",
+                  "ロゴデザイン",
+                ].map((item, i, arr) => (
+                  <div
+                    key={item}
+                    className={`flex items-center gap-3 p-3 ${i !== arr.length - 1 ? "border-b border-dashed border-border/40" : ""}`}
+                  >
+                    <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-blue-300/70" strokeWidth={1.5} />
+                    <span className="text-sm text-foreground/80">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          </div>{/* /blueprint-grid wrapper */}
+
+          <div className="mt-6 space-y-2">
+            <p className="text-xs leading-relaxed text-muted-foreground">
+              ※ 掲載価格はあくまでも参考目安です。ページ数・機能要件・デザインの複雑さによって変動するため、実際のお見積りはヒアリング後にご提示します。
+            </p>
+            <p className="text-xs leading-relaxed text-muted-foreground">
+              ※ 表示価格はすべて税別です。月額保守費は別途お見積りとなります。
+              お支払い方法・キャンセルポリシー等の詳細は
+              <Link
+                href="/legal"
+                className="underline underline-offset-2 transition-colors hover:text-foreground"
+              >
+                特定商取引法に基づく表記
+              </Link>
+              をご確認ください。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── モニター募集 ── */}
+      <section className="border-b border-border bg-card blueprint-grid px-6 py-20 md:py-28">
+        <div className="mx-auto max-w-6xl">
+          <TechLabel>// CAMPAIGN — 2026 LAUNCH PARTNER PROGRAM</TechLabel>
+
+          <div className="relative border border-blue-300/30 bg-blue-300/5 p-8 md:p-12">
+            <span className="absolute top-0 left-0 h-6 w-6 border-t-2 border-l-2 border-blue-300/50" />
+            <span className="absolute top-0 right-0 h-6 w-6 border-t-2 border-r-2 border-blue-300/50" />
+            <span className="absolute bottom-0 left-0 h-6 w-6 border-b-2 border-l-2 border-blue-300/50" />
+            <span className="absolute bottom-0 right-0 h-6 w-6 border-b-2 border-r-2 border-blue-300/50" />
+
+            {/* VACANCYバナー */}
+            <div className="mb-10 flex items-center justify-between border-b border-blue-300/20 pb-8">
+              <div className="flex items-baseline gap-3">
+                <p className="font-mono text-5xl font-bold leading-none text-blue-300">3</p>
+                <p className="font-mono text-xs tracking-widest text-blue-300/70">枠 残っています</p>
+              </div>
+              <p className="font-mono text-[9px] tracking-widest text-foreground/30">2026 LAUNCH PARTNER</p>
+            </div>
+
+            {/* ヘッダー */}
+            <div className="mb-10">
+              <h2 className="mb-4 text-2xl font-bold tracking-tight text-foreground md:text-3xl">
+                2026年度 ローンチパートナー募集
+              </h2>
+              <p className="text-sm leading-relaxed text-muted-foreground">
+                FlagshipWorksは、現役医師と事業開発プロが立ち上げた新しいチームです。今年度は「実績の質」を最優先するため、私たちのメソッドを共に形にしてくださるローンチパートナーを募集いたします。
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-10">
+              {/* 左: 特典 */}
+              <div>
+                <p className="mb-4 font-mono text-[9px] tracking-widest text-foreground/30">BENEFITS</p>
+                <div className="grid grid-cols-1 gap-px bg-blue-300/10 md:grid-cols-3">
+                  {[
+                    {
+                      label: "制作費特別割引",
+                      value: "通常価格より 40% OFF",
+                    },
+                    {
+                      label: "戦略コンサル無償提供",
+                      value: "新規事業開発の知見を活かした集患・ブランディング戦略を無償で立案",
+                    },
+                    {
+                      label: "医師によるフル監修",
+                      value: "サイト全編にわたり、現役医師が薬機法・広告ガイドラインを徹底診断",
+                    },
+                  ].map(({ label, value }) => (
+                    <div key={label} className="border border-blue-300/20 bg-blue-300/5 p-4">
+                      <CheckCircle2 className="mb-3 h-4 w-4 text-blue-300/70" strokeWidth={1.5} />
+                      <p className="mb-2 text-sm font-semibold tracking-tight text-foreground">{label}</p>
+                      <p className="text-sm leading-relaxed text-foreground/60">{value}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* 右: 応募条件 + CTA */}
+              <div>
+                <p className="mb-3 font-mono text-[9px] tracking-widest text-foreground/20">REQUIREMENTS</p>
+                <div className="mb-8 space-y-2">
+                  {[
+                    "制作事例として当サイトへ貴院名・URLを掲載可能なこと",
+                    "導入後の効果（予約数等）の共有、およびインタビューにご協力いただけること",
+                    "誠実な医療提供を通じて、共に地域医療を支える志をお持ちであること",
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <span className="mt-0.5 font-mono text-[9px] tracking-widest text-foreground/25">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <p className="text-xs leading-relaxed text-foreground/40">{item}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex justify-center">
+                  <a
+                    href="https://forms.gle/xcK8c2gDTfy8u6G77"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 border border-blue-300/40 bg-blue-300/10 px-6 py-3 font-mono text-xs tracking-[0.2em] text-blue-300 transition-colors hover:bg-blue-300/20"
+                  >
+                    無料相談・ローンチパートナー応募はこちら
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── 制作実績 ── */}
       <section className="border-b border-border px-6 py-20 md:py-28">
         <div className="mx-auto max-w-6xl">
@@ -377,7 +584,7 @@ export default function MedicalWebPage() {
               rel="noopener noreferrer"
               className="inline-flex shrink-0 items-center gap-3 border border-foreground/20 px-8 py-4 font-mono text-xs tracking-[0.2em] text-foreground transition-colors hover:bg-foreground/5 uppercase"
             >
-              お問い合わせフォームへ
+              無料相談はこちら
               <ArrowRight className="h-3.5 w-3.5" />
             </a>
           </div>

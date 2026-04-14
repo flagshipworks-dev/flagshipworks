@@ -7,7 +7,6 @@ import { usePathname } from "next/navigation";
 const navLinks = [
   { href: "/#business", label: "事業内容" },
   { href: "/#services", label: "サービス" },
-  { href: "/works", label: "制作実績" },
   { href: "/log", label: "ログ" },
   { href: "/#about", label: "会社概要" },
   { href: "https://forms.gle/xcK8c2gDTfy8u6G77", label: "お問い合わせ", external: true },
@@ -67,12 +66,20 @@ export function Footer() {
         {/* コピーライト + 設計図分類 */}
         <div className="mt-8 flex flex-col gap-2 border-t border-border pt-8 md:flex-row md:items-center md:justify-between">
           <div className="flex flex-col gap-6">
-            <Link
-              href="/privacy"
-              className="text-xs tracking-widest text-muted-foreground transition-colors hover:text-foreground"
-            >
-              プライバシーポリシー
-            </Link>
+            <div className="flex flex-wrap gap-x-6 gap-y-3">
+              <Link
+                href="/privacy"
+                className="text-xs tracking-widest text-muted-foreground transition-colors hover:text-foreground"
+              >
+                プライバシーポリシー
+              </Link>
+              <Link
+                href="/legal"
+                className="text-xs tracking-widest text-muted-foreground transition-colors hover:text-foreground"
+              >
+                特定商取引法に基づく表記
+              </Link>
+            </div>
             <p className="text-xs tracking-widest text-muted-foreground">
               © {new Date().getFullYear()} FlagshipWorks合同会社. All rights reserved.
             </p>

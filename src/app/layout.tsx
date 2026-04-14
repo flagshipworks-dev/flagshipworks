@@ -27,7 +27,7 @@ const notoSansJP = Noto_Sans_JP({
 export const metadata: Metadata = {
   metadataBase: new URL("https://flagshipworks.co.jp"),
   title: {
-    default: "FlagshipWorks合同会社",
+    default: "FlagshipWorks",
     template: "%s | FlagshipWorks",
   },
   description:
@@ -58,8 +58,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ja_JP",
     url: "https://flagshipworks.co.jp",
-    siteName: "FlagshipWorks合同会社",
-    title: "FlagshipWorks合同会社",
+    siteName: "FlagshipWorks",
+    title: "FlagshipWorks",
     description:
       "ひとつの母艦から、それぞれの旗艦へ。現役デザイナーと現役眼科医が手がける、複合事業型スタートアップ。",
     images: [
@@ -67,13 +67,13 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "FlagshipWorks合同会社",
+        alt: "FlagshipWorks",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "FlagshipWorks合同会社",
+    title: "FlagshipWorks",
     description: "ひとつの母艦から、それぞれの旗艦へ。",
     images: ["/opengraph-image"],
   },
