@@ -1,6 +1,8 @@
 import { ArrowDown, ArrowRight, Code2, Building2, Activity, Monitor } from "lucide-react";
+import Link from "next/link";
 import { StarField } from "@/components/StarField";
 import { FadeIn } from "@/components/FadeIn";
+import { getAllLogs, getAllWorks } from "@/lib/content";
 
 /* ── 設計図クロスヘア ── */
 function Crosshair({ className }: { className?: string }) {
@@ -185,6 +187,9 @@ const companyInfo = [
 ];
 
 export default function HomePage() {
+  const logs = getAllLogs().slice(0, 3);
+  const works = getAllWorks().slice(0, 3);
+
   return (
     <>
       {/* ── Hero ── */}
@@ -421,18 +426,96 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── About ── */}
-      <section id="about" className="relative overflow-hidden border-t border-border px-6 py-24 md:py-32">
+      {/* ── Works ── */}
+      <section id="works" className="relative overflow-hidden border-t border-border bg-card blueprint-grid px-6 py-24 md:py-32">
         {/* ゴーストナンバー */}
         <span className="pointer-events-none absolute -left-4 top-4 select-none font-mono text-[11rem] font-bold leading-none text-foreground/4 md:text-[16rem]">
           03
+        </span>
+        <div className="mx-auto max-w-6xl">
+          <FadeIn>
+          <div className="mb-16 flex items-end justify-between gap-8">
+            <div>
+              <TechLabel>// SECTION.03 — WORKS</TechLabel>
+              <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+                制作実績
+              </h2>
+            </div>
+            {works.length > 0 && (
+              <Link
+                href="/works"
+                className="hidden shrink-0 items-center gap-3 border border-foreground/20 px-5 py-2.5 font-mono text-xs tracking-[0.2em] text-foreground transition-colors hover:bg-foreground/5 md:inline-flex"
+              >
+                すべての実績
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            )}
+          </div>
+          </FadeIn>
+
+          {works.length === 0 ? (
+            <FadeIn>
+            <div className="relative border border-border/50 p-12 text-center md:p-20">
+              <span className="absolute top-0 left-0 h-6 w-6 border-t-2 border-l-2 border-foreground/35" />
+              <span className="absolute top-0 right-0 h-6 w-6 border-t-2 border-r-2 border-foreground/35" />
+              <span className="absolute bottom-0 left-0 h-6 w-6 border-b-2 border-l-2 border-foreground/35" />
+              <span className="absolute bottom-0 right-0 h-6 w-6 border-b-2 border-r-2 border-foreground/35" />
+              <p className="mb-3 font-mono text-[10px] tracking-[0.3em] text-foreground/25">
+                STATUS: LOADING
+              </p>
+              <p className="text-sm text-muted-foreground">制作実績を順次公開予定</p>
+            </div>
+            </FadeIn>
+          ) : (
+            <div className="grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-3">
+              {works.map(({ slug, title, category, description }) => (
+                <FadeIn key={slug} className="h-full">
+                <Link
+                  href={`/works/${slug}`}
+                  className="group relative flex h-full flex-col bg-background blueprint-grid p-8 transition-colors hover:bg-card"
+                >
+                  <span className="absolute top-0 left-0 h-5 w-5 border-t-2 border-l-2 border-foreground/35" />
+                  <span className="absolute top-0 right-0 h-5 w-5 border-t-2 border-r-2 border-foreground/35" />
+                  <span className="absolute bottom-0 left-0 h-5 w-5 border-b-2 border-l-2 border-foreground/35" />
+                  <span className="absolute bottom-0 right-0 h-5 w-5 border-b-2 border-r-2 border-foreground/35" />
+                  <p className="mb-4 font-mono text-[9px] tracking-[0.15em] text-blue-300">{category}</p>
+                  <h3 className="mb-3 flex-1 text-base font-semibold tracking-tight text-foreground transition-colors group-hover:text-blue-300">{title}</h3>
+                  <p className="mb-5 text-sm leading-relaxed text-muted-foreground">{description}</p>
+                  <div className="flex items-center gap-2 font-mono text-[10px] tracking-widest text-foreground/40 group-hover:text-foreground/60">
+                    VIEW <ArrowRight className="h-3 w-3" />
+                  </div>
+                </Link>
+                </FadeIn>
+              ))}
+            </div>
+          )}
+
+          {works.length > 0 && (
+            <div className="mt-6 flex justify-end md:hidden">
+              <Link
+                href="/works"
+                className="inline-flex items-center gap-3 border border-foreground/20 px-5 py-2.5 font-mono text-xs tracking-[0.2em] text-foreground transition-colors hover:bg-foreground/5"
+              >
+                すべての実績
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* ── About ── */}
+      <section id="about" className="relative overflow-hidden border-t border-border px-6 py-24 md:py-32">
+        {/* ゴーストナンバー */}
+        <span className="pointer-events-none absolute -right-4 top-4 select-none font-mono text-[11rem] font-bold leading-none text-foreground/4 md:text-[16rem]">
+          04
         </span>
         <div className="mx-auto max-w-6xl">
           <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-24">
             {/* 左: 見出し */}
             <FadeIn>
             <div>
-              <TechLabel>// SECTION.03 — COMPANY PROFILE</TechLabel>
+              <TechLabel>// SECTION.04 — COMPANY PROFILE</TechLabel>
               <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
                 会社概要
               </h2>
@@ -478,13 +561,13 @@ export default function HomePage() {
       {/* ── Members ── */}
       <section id="members" className="relative overflow-hidden border-t border-border bg-card blueprint-grid px-6 py-24 md:py-32">
         {/* ゴーストナンバー */}
-        <span className="pointer-events-none absolute -right-4 top-4 select-none font-mono text-[11rem] font-bold leading-none text-foreground/4 md:text-[16rem]">
-          04
+        <span className="pointer-events-none absolute -left-4 top-4 select-none font-mono text-[11rem] font-bold leading-none text-foreground/4 md:text-[16rem]">
+          05
         </span>
         <div className="mx-auto max-w-6xl">
           <FadeIn>
           <div className="mb-16">
-            <TechLabel>// SECTION.04 — MEMBERS</TechLabel>
+            <TechLabel>// SECTION.05 — MEMBERS</TechLabel>
             <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
               メンバー
             </h2>
@@ -550,17 +633,85 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── Log ── */}
+      <section id="log" className="relative overflow-hidden border-t border-border px-6 py-24 md:py-32">
+        {/* ゴーストナンバー */}
+        <span className="pointer-events-none absolute -right-4 top-4 select-none font-mono text-[11rem] font-bold leading-none text-foreground/4 md:text-[16rem]">
+          06
+        </span>
+        <div className="mx-auto max-w-6xl">
+          <FadeIn>
+          <div className="mb-16 flex items-end justify-between gap-8">
+            <div>
+              <TechLabel>// SECTION.06 — LOG</TechLabel>
+              <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+                ログ
+              </h2>
+            </div>
+            <Link
+              href="/log"
+              className="hidden shrink-0 items-center gap-3 border border-foreground/20 px-5 py-2.5 font-mono text-xs tracking-[0.2em] text-foreground transition-colors hover:bg-foreground/5 md:inline-flex"
+            >
+              すべての記事
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </div>
+          </FadeIn>
+
+          {logs.length > 0 && (
+            <div className="grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-3">
+              {logs.map(({ slug, title, date, description, tags }) => (
+                <FadeIn key={slug} className="h-full">
+                <Link
+                  href={`/log/${slug}`}
+                  className="group relative flex h-full flex-col bg-background blueprint-grid p-8 transition-colors hover:bg-card"
+                >
+                  <span className="absolute top-0 left-0 h-5 w-5 border-t-2 border-l-2 border-foreground/35" />
+                  <span className="absolute top-0 right-0 h-5 w-5 border-t-2 border-r-2 border-foreground/35" />
+                  <span className="absolute bottom-0 left-0 h-5 w-5 border-b-2 border-l-2 border-foreground/35" />
+                  <span className="absolute bottom-0 right-0 h-5 w-5 border-b-2 border-r-2 border-foreground/35" />
+                  <p className="mb-4 font-mono text-[9px] tracking-widest text-foreground/30">{date}</p>
+                  <h3 className="mb-3 flex-1 text-base font-semibold leading-snug text-foreground transition-colors group-hover:text-blue-300">{title}</h3>
+                  <p className="mb-5 text-sm leading-relaxed text-muted-foreground">{description}</p>
+                  {tags.length > 0 && (
+                    <div className="mb-5 flex flex-wrap gap-2">
+                      {tags.map((tag) => (
+                        <span key={tag} className="border border-foreground/15 px-2 py-1 font-mono text-[9px] tracking-widest text-foreground/40">{tag}</span>
+                      ))}
+                    </div>
+                  )}
+                  <div className="flex items-center gap-2 font-mono text-[10px] tracking-widest text-foreground/40 group-hover:text-foreground/60">
+                    READ <ArrowRight className="h-3 w-3" />
+                  </div>
+                </Link>
+                </FadeIn>
+              ))}
+            </div>
+          )}
+
+          <div className="mt-6 flex justify-end md:hidden">
+            <Link
+              href="/log"
+              className="inline-flex items-center gap-3 border border-foreground/20 px-5 py-2.5 font-mono text-xs tracking-[0.2em] text-foreground transition-colors hover:bg-foreground/5"
+            >
+              すべての記事
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ── Contact ── */}
       <section id="contact" className="relative overflow-hidden border-t border-border px-6 py-24 md:py-32">
         {/* ゴーストナンバー */}
         <span className="pointer-events-none absolute -left-4 top-4 select-none font-mono text-[11rem] font-bold leading-none text-foreground/4 md:text-[16rem]">
-          05
+          07
         </span>
         <div className="mx-auto max-w-6xl">
           <FadeIn>
           <div className="flex flex-col items-start justify-between gap-12 md:flex-row md:items-end">
             <div>
-              <TechLabel>// SECTION.05 — CONTACT</TechLabel>
+              <TechLabel>// SECTION.07 — CONTACT</TechLabel>
               <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
                 お問い合わせ
               </h2>

@@ -166,3 +166,78 @@
     background-size: 120px 120px, 120px 120px, 30px 30px, 30px 30px;
   }
 }
+
+/* MDXコンテンツのスタイリング */
+.mdx-content h2 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--foreground);
+  margin-top: 2.5rem;
+  margin-bottom: 0.875rem;
+}
+.mdx-content h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.mdx-content p {
+  font-size: 0.875rem;
+  line-height: 1.85;
+  color: var(--muted-foreground);
+  margin-bottom: 1.25rem;
+}
+.mdx-content ul,
+.mdx-content ol {
+  font-size: 0.875rem;
+  line-height: 1.85;
+  color: var(--muted-foreground);
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+}
+.mdx-content ul { list-style-type: disc; }
+.mdx-content ol { list-style-type: decimal; }
+.mdx-content li { margin-bottom: 0.25rem; }
+.mdx-content a {
+  color: #93c5fd;
+  text-decoration: none;
+}
+.mdx-content a:hover { text-decoration: underline; }
+.mdx-content strong {
+  color: var(--foreground);
+  font-weight: 600;
+}
+.mdx-content code {
+  font-family: var(--font-geist-mono);
+  font-size: 0.8em;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  padding: 0.1em 0.4em;
+  color: #93c5fd;
+}
+.mdx-content pre {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  overflow-x: auto;
+  margin-bottom: 1.25rem;
+}
+.mdx-content pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.875rem;
+  color: var(--foreground);
+}
+.mdx-content blockquote {
+  border-left: 2px solid #93c5fd;
+  padding-left: 1rem;
+  margin-bottom: 1.25rem;
+  color: var(--muted-foreground);
+}
+.mdx-content hr {
+  border-color: var(--border);
+  margin: 2rem 0;
+}

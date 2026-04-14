@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Monitor, CheckCircle2 } from "lucide-react";
+import { getAllLogs, getAllWorks } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "医療業界向けサイト制作",
@@ -126,6 +127,13 @@ const jsonLd = {
 };
 
 export default function MedicalWebPage() {
+  const medicalLogs = getAllLogs()
+    .filter((log) => log.tags.includes("医療"))
+    .slice(0, 3);
+  const medicalWorks = getAllWorks()
+    .filter((work) => work.category.includes("医療"))
+    .slice(0, 3);
+
   return (
     <div className="min-h-screen">
       <script
@@ -239,6 +247,114 @@ export default function MedicalWebPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── 制作実績 ── */}
+      <section className="border-b border-border px-6 py-20 md:py-28">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-10 flex items-end justify-between gap-8">
+            <div>
+              <TechLabel>// WORKS — PROJECT ARCHIVE</TechLabel>
+              <h2 className="text-2xl font-bold tracking-tight text-foreground md:text-3xl">
+                制作実績
+              </h2>
+            </div>
+            {medicalWorks.length > 0 && (
+              <Link
+                href="/works"
+                className="hidden shrink-0 items-center gap-3 border border-foreground/20 px-5 py-2.5 font-mono text-xs tracking-[0.2em] text-foreground transition-colors hover:bg-foreground/5 md:inline-flex"
+              >
+                すべての実績
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            )}
+          </div>
+
+          {medicalWorks.length === 0 ? (
+            <div className="relative border border-border/50 p-12 text-center md:p-20">
+              <span className="absolute top-0 left-0 h-6 w-6 border-t-2 border-l-2 border-foreground/35" />
+              <span className="absolute top-0 right-0 h-6 w-6 border-t-2 border-r-2 border-foreground/35" />
+              <span className="absolute bottom-0 left-0 h-6 w-6 border-b-2 border-l-2 border-foreground/35" />
+              <span className="absolute bottom-0 right-0 h-6 w-6 border-b-2 border-r-2 border-foreground/35" />
+              <p className="mb-3 font-mono text-[10px] tracking-[0.3em] text-foreground/25">
+                STATUS: LOADING
+              </p>
+              <p className="text-sm text-muted-foreground">制作実績を順次公開予定</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-3">
+              {medicalWorks.map(({ slug, title, category, description }) => (
+                <Link
+                  key={slug}
+                  href={`/works/${slug}`}
+                  className="group relative flex flex-col bg-background blueprint-grid p-8 transition-colors hover:bg-card"
+                >
+                  <span className="absolute top-0 left-0 h-5 w-5 border-t-2 border-l-2 border-foreground/35" />
+                  <span className="absolute top-0 right-0 h-5 w-5 border-t-2 border-r-2 border-foreground/35" />
+                  <span className="absolute bottom-0 left-0 h-5 w-5 border-b-2 border-l-2 border-foreground/35" />
+                  <span className="absolute bottom-0 right-0 h-5 w-5 border-b-2 border-r-2 border-foreground/35" />
+                  <p className="mb-4 font-mono text-[9px] tracking-[0.15em] text-blue-300">{category}</p>
+                  <h3 className="mb-3 flex-1 text-base font-semibold tracking-tight text-foreground transition-colors group-hover:text-blue-300">{title}</h3>
+                  <p className="mb-5 text-sm leading-relaxed text-muted-foreground">{description}</p>
+                  <div className="flex items-center gap-2 font-mono text-[10px] tracking-widest text-foreground/40 group-hover:text-foreground/60">
+                    VIEW <ArrowRight className="h-3 w-3" />
+                  </div>
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* ── 関連ログ ── */}
+      <section className="border-b border-border bg-card blueprint-grid px-6 py-20 md:py-28">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-10 flex items-end justify-between gap-8">
+            <div>
+              <TechLabel>// LOG — RELATED ARTICLES</TechLabel>
+              <h2 className="text-2xl font-bold tracking-tight text-foreground md:text-3xl">
+                関連ログ
+              </h2>
+            </div>
+            <Link
+              href="/log"
+              className="hidden shrink-0 items-center gap-3 border border-foreground/20 px-5 py-2.5 font-mono text-xs tracking-[0.2em] text-foreground transition-colors hover:bg-foreground/5 md:inline-flex"
+            >
+              すべての記事
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </div>
+
+          {medicalLogs.length > 0 && (
+            <div className="grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-3">
+              {medicalLogs.map(({ slug, title, date, description, tags }) => (
+                <Link
+                  key={slug}
+                  href={`/log/${slug}`}
+                  className="group relative flex flex-col bg-background blueprint-grid p-8 transition-colors hover:bg-card"
+                >
+                  <span className="absolute top-0 left-0 h-5 w-5 border-t-2 border-l-2 border-foreground/35" />
+                  <span className="absolute top-0 right-0 h-5 w-5 border-t-2 border-r-2 border-foreground/35" />
+                  <span className="absolute bottom-0 left-0 h-5 w-5 border-b-2 border-l-2 border-foreground/35" />
+                  <span className="absolute bottom-0 right-0 h-5 w-5 border-b-2 border-r-2 border-foreground/35" />
+                  <p className="mb-4 font-mono text-[9px] tracking-widest text-foreground/30">{date}</p>
+                  <h3 className="mb-3 flex-1 text-base font-semibold leading-snug text-foreground transition-colors group-hover:text-blue-300">{title}</h3>
+                  <p className="mb-5 text-sm leading-relaxed text-muted-foreground">{description}</p>
+                  {tags.length > 0 && (
+                    <div className="mb-5 flex flex-wrap gap-2">
+                      {tags.map((tag) => (
+                        <span key={tag} className="border border-foreground/15 px-2 py-1 font-mono text-[9px] tracking-widest text-foreground/40">{tag}</span>
+                      ))}
+                    </div>
+                  )}
+                  <div className="flex items-center gap-2 font-mono text-[10px] tracking-widest text-foreground/40 group-hover:text-foreground/60">
+                    READ <ArrowRight className="h-3 w-3" />
+                  </div>
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 

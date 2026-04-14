@@ -7,6 +7,8 @@ import { usePathname } from "next/navigation";
 const navLinks = [
   { href: "/#business", label: "事業内容" },
   { href: "/#services", label: "サービス" },
+  { href: "/works", label: "制作実績" },
+  { href: "/log", label: "ログ" },
   { href: "/#about", label: "会社概要" },
   { href: "https://forms.gle/xcK8c2gDTfy8u6G77", label: "お問い合わせ", external: true },
 ];
@@ -30,7 +32,7 @@ export function Footer() {
           </Link>
 
           {/* リンク */}
-          <nav className="flex items-center gap-6">
+          <nav className="flex flex-wrap gap-x-6 gap-y-3">
             {navLinks.map(({ href, label, external }) =>
               external ? (
                 <a
