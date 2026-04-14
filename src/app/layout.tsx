@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     template: "%s | FlagshipWorks",
   },
   description:
-    "ひとつの母艦から、それぞれの旗艦へ。現役デザイナーと現役眼科医が手がける、ホールディングス型スタートアップ。Web・IT / 民泊・旅館業 / 医療の3領域で事業を展開。東京都世田谷区。",
+    "ひとつの母艦から、それぞれの旗艦へ。現役デザイナーと現役眼科医が手がける、複合事業型スタートアップ。Web・IT / 民泊・旅館業 / 医療の3領域で事業を展開。東京都世田谷区。",
   keywords: [
     "FlagshipWorks",
     "FlagshipWorks合同会社",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     "Webデザイン",
     "東京",
     "世田谷",
-    "ホールディングス",
+    "複合事業",
     "スタートアップ",
   ],
   authors: [{ name: "FlagshipWorks合同会社", url: "https://flagshipworks.co.jp" }],
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     siteName: "FlagshipWorks合同会社",
     title: "FlagshipWorks合同会社",
     description:
-      "ひとつの母艦から、それぞれの旗艦へ。現役デザイナーと現役眼科医が手がける、ホールディングス型スタートアップ。",
+      "ひとつの母艦から、それぞれの旗艦へ。現役デザイナーと現役眼科医が手がける、複合事業型スタートアップ。",
     images: [
       {
         url: "/opengraph-image",
@@ -122,7 +122,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 url: "https://flagshipworks.co.jp",
                 logo: "https://flagshipworks.co.jp/logo.svg",
                 description:
-                  "ひとつの母艦から、それぞれの旗艦へ。現役デザイナーと現役眼科医が手がける、ホールディングス型スタートアップ。",
+                  "ひとつの母艦から、それぞれの旗艦へ。現役デザイナーと現役眼科医が手がける、複合事業型スタートアップ。",
                 foundingDate: "2026-01-29",
                 address: {
                   "@type": "PostalAddress",
