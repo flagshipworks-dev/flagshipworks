@@ -266,7 +266,10 @@ export default function MedicalWebPage() {
 
           <div className="grid grid-cols-1 gap-px bg-foreground/20 md:grid-cols-2">
             {/* Standard Plan */}
-            <div className="bg-background/60 p-8 md:p-10">
+            <div className="relative bg-background/60 p-8 md:p-10">
+              <span className="absolute top-4 right-4 border border-blue-300/30 bg-blue-300/10 px-2 py-1 font-mono text-[9px] tracking-widest text-blue-300">
+                医師監修
+              </span>
               <p className="mb-4 font-mono text-[9px] tracking-[0.15em] text-blue-300">STANDARD PLAN</p>
               <p className="mb-6 text-4xl font-bold tracking-tight text-foreground">
                 ¥600,000
@@ -304,7 +307,10 @@ export default function MedicalWebPage() {
             </div>
 
             {/* Professional Plan */}
-            <div className="bg-background/60 p-8 md:p-10">
+            <div className="relative bg-background/60 p-8 md:p-10">
+              <span className="absolute top-4 right-4 border border-blue-300/30 bg-blue-300/10 px-2 py-1 font-mono text-[9px] tracking-widest text-blue-300">
+                医師監修
+              </span>
               <p className="mb-4 font-mono text-[9px] tracking-[0.15em] text-blue-300">PROFESSIONAL PLAN</p>
               <p className="mb-6 text-4xl font-bold tracking-tight text-foreground">
                 ¥1,200,000
