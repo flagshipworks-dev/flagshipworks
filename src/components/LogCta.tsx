@@ -71,7 +71,7 @@ export function LogCta({ tags }: { tags: string[] }) {
         rel="noopener noreferrer"
         className="inline-flex items-center gap-3 border border-foreground/20 px-6 py-3 font-mono text-xs tracking-[0.2em] text-foreground transition-colors hover:bg-foreground/5 uppercase"
       >
-        お問い合わせフォームへ
+        無料相談はこちら
         <ArrowRight className="h-3.5 w-3.5" />
       </a>
     </div>

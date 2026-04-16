@@ -20,7 +20,7 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-6 py-12">
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
           {/* ロゴ */}
-          <Link href="/" aria-label="FlagshipWorks トップへ">
+          <Link href="/" aria-label="FlagshipWorks — トップページへ戻る">
             <Image
               src="/logo.svg"
               alt="FlagshipWorks"

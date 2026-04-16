@@ -394,6 +394,7 @@ export default function HomePage() {
                 </p>
                 <a
                   href="/service/medical-web"
+                  aria-label="医療業界向けサイト制作について詳しく見る"
                   className="inline-flex items-center gap-3 border border-foreground/20 px-6 py-3 font-mono text-xs tracking-[0.2em] text-foreground transition-colors hover:bg-foreground/5 uppercase"
                 >
                   詳しく見る
@@ -444,6 +445,7 @@ export default function HomePage() {
             {works.length > 0 && (
               <Link
                 href="/works"
+                aria-label="すべての制作実績を見る"
                 className="hidden shrink-0 items-center gap-3 border border-foreground/20 px-5 py-2.5 font-mono text-xs tracking-[0.2em] text-foreground transition-colors hover:bg-foreground/5 md:inline-flex"
               >
                 すべての実績
@@ -494,6 +496,7 @@ export default function HomePage() {
             <div className="mt-6 flex justify-end md:hidden">
               <Link
                 href="/works"
+                aria-label="すべての制作実績を見る"
                 className="inline-flex items-center gap-3 border border-foreground/20 px-5 py-2.5 font-mono text-xs tracking-[0.2em] text-foreground transition-colors hover:bg-foreground/5"
               >
                 すべての実績
@@ -650,6 +653,7 @@ export default function HomePage() {
             </div>
             <Link
               href="/log"
+              aria-label="すべてのログ記事を見る"
               className="hidden shrink-0 items-center gap-3 border border-foreground/20 px-5 py-2.5 font-mono text-xs tracking-[0.2em] text-foreground transition-colors hover:bg-foreground/5 md:inline-flex"
             >
               すべての記事
@@ -692,6 +696,7 @@ export default function HomePage() {
           <div className="mt-6 flex justify-end md:hidden">
             <Link
               href="/log"
+              aria-label="すべてのログ記事を見る"
               className="inline-flex items-center gap-3 border border-foreground/20 px-5 py-2.5 font-mono text-xs tracking-[0.2em] text-foreground transition-colors hover:bg-foreground/5"
             >
               すべての記事
