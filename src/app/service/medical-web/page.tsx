@@ -102,7 +102,7 @@ const process = [
   { step: "01", title: "ヒアリング", description: "診療内容・ターゲット患者層・競合環境・ご要望を詳しくお聞きします。" },
   { step: "02", title: "設計・提案", description: "サイト構成・デザインコンセプト・スケジュールをご提案します。" },
   { step: "03", title: "デザイン制作", description: "ガイドラインに沿ったビジュアルデザインを制作し、フィードバックを反映します。" },
-  { step: "04", title: "コーディング・実装", description: "高速・安全・SEOに強いコードで実装します。" },
+  { step: "04", title: "コーディング・実装", description: "高速表示・セキュリティ対策・SEOに配慮したコードで実装します。" },
   { step: "05", title: "医師監修・最終確認", description: "コンテンツを医師が監修し、広告ガイドライン遵守を確認します。" },
   { step: "06", title: "公開・サポート", description: "サイトを公開後も、更新サポートや改善提案を継続的に行います。" },
 ];
@@ -383,16 +383,9 @@ export default function MedicalWebPage() {
 
             {/* VACANCYバナー */}
             <div className="mb-10 flex items-center justify-between border-b border-blue-300/20 pb-8">
-              <div className="flex items-baseline gap-3">
-                <p className="font-mono text-5xl font-bold leading-none text-blue-300">3</p>
-                <p className="font-mono text-xs tracking-widest text-blue-300/70">枠 残っています</p>
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="relative flex h-3 w-3 shrink-0">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-60" />
-                  <span className="relative inline-flex h-3 w-3 rounded-full bg-green-400" />
-                </span>
-                <p className="font-mono text-xs tracking-widest text-green-400/80">OPEN</p>
+              <div className="flex flex-col gap-1.5">
+                <p className="font-mono text-[10px] tracking-widest text-blue-300/50">CAPACITY</p>
+                <p className="font-mono text-sm tracking-widest text-blue-300">限定 3 院様まで</p>
               </div>
             </div>
 
@@ -414,15 +407,15 @@ export default function MedicalWebPage() {
                   {[
                     {
                       label: "制作費特別割引",
-                      value: "通常価格より 20% OFF",
+                      value: "期間限定 20% OFF",
                     },
                     {
-                      label: "戦略コンサル無償提供",
-                      value: "新規事業開発の知見を活かした集患・ブランディング戦略を無償で立案",
+                      label: "優先サポート対応",
+                      value: "公開後のご質問・修正対応をローンチパートナー様に優先してご対応します。",
                     },
                     {
                       label: "医師によるフル監修",
-                      value: "サイト全編にわたり、現役医師が薬機法・広告ガイドラインを徹底診断",
+                      value: "サイト全編にわたり、現役医師が医療コンテンツを監修し、薬機法・広告ガイドラインの原則に沿った表現をチェックします。",
                     },
                   ].map(({ label, value }) => (
                     <div key={label} className="border border-blue-300/20 bg-blue-300/5 p-4">
