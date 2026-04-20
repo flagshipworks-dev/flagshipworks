@@ -2,6 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Monitor, CheckCircle2 } from "lucide-react";
 import { getAllLogs, getAllWorks } from "@/lib/content";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export const metadata: Metadata = {
   title: "医療業界向けサイト制作 | FlagshipWorks",
@@ -567,6 +573,113 @@ export default function MedicalWebPage() {
               ))}
             </div>
           )}
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section className="border-t border-border px-6 py-20 md:py-28">
+        <div className="mx-auto max-w-6xl">
+          <TechLabel>// FAQ — FREQUENTLY ASKED QUESTIONS</TechLabel>
+          <h2 className="mb-12 text-2xl font-bold tracking-tight text-foreground md:text-3xl">
+            よくあるご質問
+          </h2>
+
+          <Accordion multiple={false} className="border border-border/50">
+            {[
+              {
+                q: "医療広告ガイドラインへの対応はどこまで含まれますか？",
+                a: "制作するすべてのページのテキストを、現役眼科医が医療広告ガイドラインの観点からチェックします。NG表現の指摘と修正案の提示まで対応しますので、クライアント様側でガイドラインを調べる必要はありません。",
+              },
+              {
+                q: "テキスト（文章）はこちらで用意する必要がありますか？",
+                a: "基本的にはヒアリングをもとに弊社でライティングします。診療内容・医師プロフィール・クリニックの特徴などをお伺いし、医療に詳しいスタッフが文章を作成します。すでに原稿がある場合はそちらをベースに制作することも可能です。",
+              },
+              {
+                q: "既存サイトからのリニューアルにも対応していますか？",
+                a: "対応しています。現在のサイトのURLや構成を引き継ぎながらリニューアルすることも、完全に新しい構成で作り直すことも可能です。SEOへの影響を最小限に抑えるリダイレクト設定も含めてサポートします。",
+              },
+              {
+                q: "写真素材を持っていない場合はどうすればいいですか？",
+                a: "Professionalプランには写真撮影ディレクションが含まれます。Standardプランの場合は、フリー素材の選定・加工での対応、または撮影費用を別途お見積りすることも可能です。お気軽にご相談ください。",
+              },
+              {
+                q: "制作期間はどのくらいかかりますか？",
+                a: "ヒアリングから公開まで、通常2〜3ヶ月程度です。ページ数や素材の準備状況によって前後します。開院前のオープニングに合わせたスケジュール調整も可能ですので、まずはご相談ください。",
+              },
+              {
+                q: "公開後の更新・修正はお願いできますか？",
+                a: "公開後の更新・修正は保守運用契約を締結いただいたクライアント様を対象としています。診療時間の変更・お知らせの追加・スタッフ情報の更新などに対応します。保守運用契約の詳細はお問い合わせください。",
+              },
+              {
+                q: "ドメインやサーバーの準備は必要ですか？",
+                a: "ドメインの取得・サーバーの契約・設定まで弊社でサポートします。すでにドメインをお持ちの場合はそちらを使用することも可能です。別途費用が発生する場合はお見積り時にご案内します。",
+              },
+            ].map(({ q, a }, i) => (
+              <AccordionItem
+                key={i}
+                className="border-b border-dashed border-border/40 last:border-0"
+              >
+                <AccordionTrigger className="cursor-pointer px-6 py-5 text-left text-sm font-semibold tracking-tight text-foreground hover:bg-foreground/3 hover:no-underline md:px-8 [&>svg]:text-foreground/40">
+                  <span className="flex items-baseline gap-3">
+                    <span className="shrink-0 font-mono text-[10px] tracking-widest text-blue-300">Q</span>
+                    {q}
+                  </span>
+                </AccordionTrigger>
+                <AccordionContent className="px-6 pb-5 md:px-8">
+                  <p className="pl-6 text-sm leading-relaxed text-muted-foreground">{a}</p>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+
+      {/* ── ご相談の流れ ── */}
+      <section className="border-t border-border bg-card blueprint-grid px-6 py-20 md:py-28">
+        <div className="mx-auto max-w-6xl">
+          <TechLabel>// FLOW — HOW TO GET STARTED</TechLabel>
+          <h2 className="mb-12 text-2xl font-bold tracking-tight text-foreground md:text-3xl">
+            ご相談の流れ
+          </h2>
+
+          <div className="grid grid-cols-1 gap-px bg-foreground/10 md:grid-cols-4">
+            {[
+              {
+                step: "01",
+                label: "お問い合わせ",
+                desc: "フォームよりお気軽にご連絡ください。現状のお悩みや希望をざっくりお聞かせいただくだけで構いません。",
+              },
+              {
+                step: "02",
+                label: "無料ヒアリング",
+                desc: "オンラインにてヒアリングを実施します。診療内容・ターゲット・ご予算・スケジュールなどをお伺いします。",
+              },
+              {
+                step: "03",
+                label: "ご提案・お見積り",
+                desc: "ヒアリング内容をもとに、サイト構成と費用のご提案をします。納得いただけるまでご相談いただけます。",
+              },
+              {
+                step: "04",
+                label: "制作開始",
+                desc: "ご契約後、制作をスタートします。定期的に進捗をご共有しながら、公開まで伴走します。",
+              },
+            ].map(({ step, label, desc }, i, arr) => (
+              <div key={step} className="relative bg-background/60 p-8">
+                <span className="absolute top-0 left-0 h-5 w-5 border-t-2 border-l-2 border-foreground/35" />
+                <span className="absolute top-0 right-0 h-5 w-5 border-t-2 border-r-2 border-foreground/35" />
+                <span className="absolute bottom-0 left-0 h-5 w-5 border-b-2 border-l-2 border-foreground/35" />
+                <span className="absolute bottom-0 right-0 h-5 w-5 border-b-2 border-r-2 border-foreground/35" />
+                <p className="mb-4 font-mono text-3xl font-bold leading-none text-foreground/10">{step}</p>
+                <p className="mb-3 font-mono text-[10px] tracking-widest text-blue-300">STEP.{step}</p>
+                <p className="mb-3 text-base font-semibold tracking-tight text-foreground">{label}</p>
+                <p className="text-sm leading-relaxed text-muted-foreground">{desc}</p>
+                {i < arr.length - 1 && (
+                  <ArrowRight className="absolute -right-3 top-1/2 z-10 hidden h-5 w-5 -translate-y-1/2 text-foreground/20 md:block" />
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
