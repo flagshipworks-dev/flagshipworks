@@ -1,5 +1,6 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
 import type { MDXComponents } from "mdx/types";
+import remarkGfm from "remark-gfm";
 
 const components: MDXComponents = {
   h1: ({ children }: { children?: React.ReactNode }) => (
@@ -57,6 +58,34 @@ const components: MDXComponents = {
     </blockquote>
   ),
   hr: () => <hr className="my-8 border-border" />,
+  table: ({ children }: { children?: React.ReactNode }) => (
+    <div className="relative mb-8 overflow-x-auto border border-border">
+      <span className="pointer-events-none absolute top-0 left-0 h-4 w-4 border-t-2 border-l-2 border-foreground/35" />
+      <span className="pointer-events-none absolute top-0 right-0 h-4 w-4 border-t-2 border-r-2 border-foreground/35" />
+      <span className="pointer-events-none absolute bottom-0 left-0 h-4 w-4 border-b-2 border-l-2 border-foreground/35" />
+      <span className="pointer-events-none absolute bottom-0 right-0 h-4 w-4 border-b-2 border-r-2 border-foreground/35" />
+      <table className="w-full border-collapse text-sm">{children}</table>
+    </div>
+  ),
+  thead: ({ children }: { children?: React.ReactNode }) => (
+    <thead className="border-b border-border bg-card">{children}</thead>
+  ),
+  tbody: ({ children }: { children?: React.ReactNode }) => (
+    <tbody>{children}</tbody>
+  ),
+  tr: ({ children }: { children?: React.ReactNode }) => (
+    <tr className="border-b border-border/50 last:border-0">{children}</tr>
+  ),
+  th: ({ children }: { children?: React.ReactNode }) => (
+    <th className="border-r border-border/50 px-5 py-3 text-left font-mono text-[10px] tracking-widest text-foreground/40 last:border-r-0">
+      {children}
+    </th>
+  ),
+  td: ({ children }: { children?: React.ReactNode }) => (
+    <td className="border-r border-border/30 px-5 py-3.5 text-sm leading-relaxed text-muted-foreground last:border-r-0">
+      {children}
+    </td>
+  ),
 };
 
 export function MdxContent({ source }: { source: string }) {
@@ -64,6 +93,7 @@ export function MdxContent({ source }: { source: string }) {
     <MDXRemote
       source={source}
       components={components}
+      options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
     />
   );
 }
