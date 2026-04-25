@@ -303,6 +303,36 @@ description: "プロジェクトの説明"
 | `民泊` `旅館` `宿泊` `ホスピタリティ` | 民泊・旅館業CTA |
 | 上記以外 | 汎用CTA |
 
+### MdxContent のカスタムコンポーネント（`src/components/MdxContent.tsx`）
+
+MDXRemote に渡すコンポーネントマップ。マークダウン記法の要素をサイトデザインに合わせてスタイリングする。`remark-gfm` を有効化しており、マークダウンのテーブル記法（`| col |`）が使用可能。
+
+| 要素 | 主なクラス |
+|------|-----------|
+| `h2` | `border-b border-border/50 pb-3 text-xl font-bold` |
+| `h3` | `text-base font-semibold` |
+| `p` | `text-sm leading-[1.9] text-muted-foreground` |
+| `ul` / `ol` | `list-disc` / `list-decimal`、`text-sm text-muted-foreground` |
+| `a` | `text-blue-300 hover:underline` |
+| `strong` | `font-semibold text-foreground` |
+| `code`（インライン） | `font-mono text-[0.8em] text-blue-300 bg-card border border-border` |
+| `pre` | `bg-card border border-border p-5 font-mono text-sm` |
+| `blockquote` | `border-l-2 border-blue-300/50 pl-4 text-sm` |
+| `table` | ラッパー `div` にコーナーブラケット + `border border-border`。内部 `table` は `w-full border-collapse` |
+| `thead` | `bg-card border-b border-border` |
+| `th` | `font-mono text-[10px] tracking-widest text-foreground/40 px-5 py-3`（ヘッダーセル） |
+| `td` | `text-sm text-muted-foreground px-5 py-3.5`（データセル） |
+| `tr` | `border-b border-border/50 last:border-0` |
+
+#### テーブルの記述方法
+MDX ファイル内ではマークダウン記法で記述する（HTMLタグは MdxContent コンポーネントを通らないため使用しない）。
+
+```md
+| 列1 | 列2 | 列3 |
+|---|---|---|
+| データA | データB | データC |
+```
+
 ### ユーティリティ関数（`src/lib/content.ts`）
 - `getAllLogs()` — ログ記事を日付降順で取得（contentフィールドなし）
 - `getLog(slug)` — スラッグでログ記事を1件取得（contentフィールドあり）
