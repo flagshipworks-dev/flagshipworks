@@ -1,5 +1,7 @@
 # CLAUDE.md
 
+> **このファイルについて**: Claude Code（AI）向けの作業ガイドです。コマンド・アーキテクチャ・開発上の注意点を記載します。人間の開発者向けドキュメントは `README.md`（技術規約）と `DESIGN.md`（デザインルール）を参照してください。
+
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 > **注意**: このプロジェクトは Next.js 16 (App Router) + React 19 を使用しています。トレーニングデータと異なるAPIや仕様がある可能性があるため、`node_modules/next/dist/docs/` のガイドを参照してください。
