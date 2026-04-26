@@ -35,21 +35,12 @@ export const metadata: Metadata = {
     title: "医療業界向けサイト制作 | FlagshipWorks",
     description:
       "現役眼科医の知見とWebデザインの専門性を掛け合わせ、医療機関に特化したウェブサイトを制作します。医療広告ガイドライン対応・患者UX設計・SEO対策まで一貫して担います。",
-    images: [
-      {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "医療業界向けサイト制作 | FlagshipWorks",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "医療業界向けサイト制作 | FlagshipWorks",
     description:
       "現役眼科医の知見とWebデザインの専門性を掛け合わせ、医療機関に特化したウェブサイトを制作します。",
-    images: ["/opengraph-image"],
   },
 };
 
