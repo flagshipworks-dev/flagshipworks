@@ -113,24 +113,44 @@ const process = [
   { step: "06", title: "公開・サポート", description: "サイトを公開後も、更新サポートや改善提案を継続的に行います。" },
 ];
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: "医療業界向けサイト制作",
-  description:
-    "現役眼科医の知見とWebデザインの専門性を掛け合わせ、医療機関に特化したウェブサイトを制作します。医療広告ガイドライン対応・患者UX設計・SEO・MEO対策まで一貫して担います。",
-  url: "https://flagshipworks.co.jp/service/medical-web",
-  serviceType: "Webサイト制作",
-  areaServed: {
-    "@type": "Country",
-    name: "Japan",
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "医療業界向けサイト制作",
+    description:
+      "現役眼科医の知見とWebデザインの専門性を掛け合わせ、医療機関に特化したウェブサイトを制作します。医療広告ガイドライン対応・患者UX設計・SEO・MEO対策まで一貫して担います。",
+    url: "https://flagshipworks.co.jp/service/medical-web",
+    serviceType: "Webサイト制作",
+    areaServed: {
+      "@type": "Country",
+      name: "Japan",
+    },
+    provider: {
+      "@type": "Organization",
+      name: "FlagshipWorks合同会社",
+      url: "https://flagshipworks.co.jp",
+    },
   },
-  provider: {
-    "@type": "Organization",
-    name: "FlagshipWorks合同会社",
-    url: "https://flagshipworks.co.jp",
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "FlagshipWorks",
+        item: "https://flagshipworks.co.jp",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "医療業界向けサイト制作",
+        item: "https://flagshipworks.co.jp/service/medical-web",
+      },
+    ],
   },
-};
+];
 
 export default function MedicalWebPage() {
   const medicalLogs = getAllLogs()

@@ -49,26 +49,52 @@ export default async function LogDetailPage({
     notFound();
   }
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: log.title,
-    description: log.description,
-    datePublished: log.date,
-    dateModified: log.date,
-    keywords: log.tags.join(", "),
-    url: `https://flagshipworks.co.jp/log/${log.slug}`,
-    author: {
-      "@type": "Organization",
-      name: "FlagshipWorks合同会社",
-      url: "https://flagshipworks.co.jp",
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: log.title,
+      description: log.description,
+      datePublished: log.date,
+      dateModified: log.date,
+      keywords: log.tags.join(", "),
+      url: `https://flagshipworks.co.jp/log/${log.slug}`,
+      author: {
+        "@type": "Organization",
+        name: "FlagshipWorks合同会社",
+        url: "https://flagshipworks.co.jp",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "FlagshipWorks合同会社",
+        url: "https://flagshipworks.co.jp",
+      },
     },
-    publisher: {
-      "@type": "Organization",
-      name: "FlagshipWorks合同会社",
-      url: "https://flagshipworks.co.jp",
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "FlagshipWorks",
+          item: "https://flagshipworks.co.jp",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "ログ",
+          item: "https://flagshipworks.co.jp/log",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: log.title,
+          item: `https://flagshipworks.co.jp/log/${log.slug}`,
+        },
+      ],
     },
-  };
+  ];
 
   return (
     <article className="mx-auto max-w-3xl px-6 pt-32 pb-24 md:pt-40">
