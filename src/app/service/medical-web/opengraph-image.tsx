@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { LogoOg } from "@/lib/ogLogo";
 
 export const alt = "医療業界向けサイト制作 | FlagshipWorks";
 export const size = { width: 1200, height: 630 };
@@ -140,16 +141,7 @@ export default async function Image() {
             justifyContent: "space-between",
           }}
         >
-          <div
-            style={{
-              fontSize: 13,
-              letterSpacing: "0.15em",
-              color: "rgba(255,255,255,0.25)",
-              display: "flex",
-            }}
-          >
-            flagshipworks.co.jp
-          </div>
+          <LogoOg opacity={0.5} />
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
             <div
               style={{
