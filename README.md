@@ -113,6 +113,19 @@ description: "プロジェクトの説明"
 「**紹介を受けた患者さんが来院を決める場所**」
 ```
 
+**MDX 内では HTML タグを使わない**
+
+MDX ファイル内では極力 HTML タグを使わず、Markdown 記法で記述する。リンクの挙動など追加の制御が必要な場合は `src/components/MdxContent.tsx` のカスタムコンポーネントで対応する。
+
+**外部リンクの新タブ開き**
+
+`http` または `https` で始まるリンクは `MdxContent.tsx` の `a` コンポーネントが自動的に `target="_blank"` を付与するため、MDX 側での指定は不要。通常の Markdown 記法で書けばよい。
+
+```md
+<!-- OK: 外部リンクは自動で新タブ開き -->
+[Think with Google](https://www.thinkwithgoogle.com/...)
+```
+
 ### LogCta のタグ判定ルール（`src/components/LogCta.tsx`）
 | タグ | 表示されるCTA |
 |------|-------------|
