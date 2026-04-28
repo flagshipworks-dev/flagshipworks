@@ -34,11 +34,18 @@ const components: MDXComponents = {
   li: ({ children }: { children?: React.ReactNode }) => (
     <li>{children}</li>
   ),
-  a: ({ href, children }: { href?: string; children?: React.ReactNode }) => (
-    <a href={href} className="text-blue-300 underline-offset-2 hover:underline">
-      {children}
-    </a>
-  ),
+  a: ({ href, children }: { href?: string; children?: React.ReactNode }) => {
+    const isExternal = href?.startsWith("http");
+    return (
+      <a
+        href={href}
+        className="text-blue-300 underline underline-offset-2 hover:opacity-80"
+        {...(isExternal && { target: "_blank", rel: "noopener noreferrer" })}
+      >
+        {children}
+      </a>
+    );
+  },
   strong: ({ children }: { children?: React.ReactNode }) => (
     <strong className="font-semibold text-foreground">{children}</strong>
   ),
